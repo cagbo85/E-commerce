@@ -1,0 +1,32 @@
+<div class="jumbotron bg-light p-5 mb-4 rounded">
+  <h1 class="display-4">Bienvenue sur notre boutique</h1>
+  <p class="lead">Découvrez notre sélection de produits de qualité.</p>
+  <hr class="my-4">
+  <p>Parcourez nos catégories ou recherchez un produit spécifique.</p>
+  <a class="btn btn-primary btn-lg" routerLink="/products" role="button">Voir tous les produits</a>
+</div>
+
+<div *ngIf="loading" class="text-center">
+  <div class="spinner-border text-primary" role="status">
+    <span class="visually-hidden">Chargement...</span>
+  </div>
+</div>
+
+<div *ngIf="error" class="alert alert-danger">
+  {{ error }}
+</div>
+
+<div *ngIf="!loading && !error">  <section class="mb-5">
+    <h2>Nos catégories</h2>
+    <app-category-list [categories]="categories"></app-category-list>
+  </section>
+
+  <section>
+    <h2>Produits populaires</h2>
+    <div class="row mt-4">
+      <div *ngFor="let product of featuredProducts" class="col-md-3 mb-4">
+        <app-product-card [product]="product"></app-product-card>
+      </div>
+    </div>
+  </section>
+</div>

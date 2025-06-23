@@ -1,0 +1,8 @@
+<div class="card h-100">
+  <div class="card-body">
+    <h5 class="card-title">{{ product.name }}</h5>
+    <p class="card-text text-truncate">{{ product.description }}</p>
+    <p class="card-text text-primary fw-bold">{{ product.price | currency:'EUR' }}</p>
+    <a [routerLink]="['/product', product.id]" class="btn btn-primary">Voir détails</a>
+  </div>
+</div>
